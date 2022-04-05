@@ -14,7 +14,7 @@ vim.g.maplocalleader = " "
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
---   visual_block_mode = "x",
+--   visual_block_mode = "x", this doesn't currently work, unsure why, should be Ctrl+V
 --   term_mode = "t",
 --   command_mode = "c",
 
@@ -39,7 +39,6 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
--- not sure why this isn't working, need to figure this out
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
