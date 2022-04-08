@@ -48,6 +48,23 @@ return packer.startup(function(use)
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes to try out
   use "lunarvim/darkplus.nvim"
+  
+  -- cmp plugins (autocomplete)
+  use "hrsh7th/nvim-cmp" --the completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completion
+  use "hrsh7th/cmp-path" -- path completion
+  use "hrsh7th/cmp-cmdline" -- cmdline completion
+  use "saadparwaiz1/cmp_luasnip" -- snippet completion
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" -- snippet engine
+  use "rafamadriz/friendly-snippets" -- snippets
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- easy installer
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
