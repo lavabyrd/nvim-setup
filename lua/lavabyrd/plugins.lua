@@ -1,6 +1,6 @@
 local fn = vim.fn
 
--- Automatically install packer
+-- Install Packer if missing
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
@@ -15,7 +15,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- update plugins on file save 
 vim.cmd [[
   augroup packer_user_config
     autocmd!
@@ -23,13 +23,11 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
 end
 
--- Have packer use a popup window
 packer.init {
   display = {
     open_fn = function()
@@ -38,40 +36,47 @@ packer.init {
   },
 }
 
--- Install your plugins here
+-- Plugins
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+  use "wbthomason/packer.nvim" 
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim"
   
-  -- Colorschemes
-  use "lunarvim/colorschemes" 
-  use "lunarvim/darkplus.nvim"
+  -- Themes
+  use "joshdick/onedark.vim"
+  use "marko-cerovac/material.nvim"
   
-  -- cmp plugins (autocomplete)
-  use "hrsh7th/nvim-cmp" --the completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completion
-  use "hrsh7th/cmp-path" -- path completion
-  use "hrsh7th/cmp-cmdline" -- cmdline completion
-  use "saadparwaiz1/cmp_luasnip" -- snippet completion
+  -- Cmp
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path" 
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip" 
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" -- snippet engine
-  use "rafamadriz/friendly-snippets" -- snippets
+  -- Snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets" 
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- easy installer
-
+  -- Lsp
+  use "neovim/nvim-lspconfig" 
+  use "williamboman/nvim-lsp-installer" 
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+ 
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  use "nvim-lualine/lualine.nvim"
+  use "kyazdani42/nvim-web-devicons"
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
