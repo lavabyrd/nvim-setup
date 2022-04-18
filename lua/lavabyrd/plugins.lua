@@ -42,7 +42,10 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" 
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  
+  use "windwp/nvim-autopairs"
+  use "kyazdani42/nvim-tree.lua"
+  use {"numToStr/Comment.nvim", tag = 'v0.6'} -- pinned due to break in 0.7 
+
   -- Themes
   use "joshdick/onedark.vim"
   use "marko-cerovac/material.nvim"
@@ -76,6 +79,17 @@ return packer.startup(function(use)
 
   use "nvim-lualine/lualine.nvim"
   use "kyazdani42/nvim-web-devicons"
+
+  use "lewis6991/gitsigns.nvim"
+
+  -- Markdown reader
+  use "ellisonleao/glow.nvim"
+
+  -- Alpha
+  use "goolord/alpha-nvim"
+
+  -- Comment strings
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

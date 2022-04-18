@@ -44,6 +44,7 @@ local kind_icons = {
 }
 
 cmp.setup {
+ 
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -115,10 +116,7 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
-  experimental = {
+    experimental = {
     ghost_text = false,
     native_menu = false,
   },
