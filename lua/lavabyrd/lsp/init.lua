@@ -5,3 +5,4 @@ end
 
 require("lavabyrd.lsp.lsp-installer")
 require("lavabyrd.lsp.handlers").setup()
+require("lavabyrd.lsp.null-ls")

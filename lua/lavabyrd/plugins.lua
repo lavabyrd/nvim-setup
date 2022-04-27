@@ -45,10 +45,14 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
   use "kyazdani42/nvim-tree.lua"
   use {"numToStr/Comment.nvim", tag = 'v0.6'} -- pinned due to break in 0.7 
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+  use "folke/which-key.nvim"
 
   -- Themes
   use "joshdick/onedark.vim"
   use "marko-cerovac/material.nvim"
+  use ({"catppuccin/nvim", as = "catppuccin"})
   
   -- Cmp
   use "hrsh7th/nvim-cmp"
@@ -65,7 +69,8 @@ return packer.startup(function(use)
 
   -- Lsp
   use "neovim/nvim-lspconfig" 
-  use "williamboman/nvim-lsp-installer" 
+  use "williamboman/nvim-lsp-installer"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
