@@ -44,10 +44,11 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "windwp/nvim-autopairs"
   use "kyazdani42/nvim-tree.lua"
-  use {"numToStr/Comment.nvim", tag = 'v0.6'} -- pinned due to break in 0.7 
+  use "numToStr/Comment.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "folke/which-key.nvim"
+  use "akinsho/toggleterm.nvim"
 
   -- Themes
   use "joshdick/onedark.vim"
