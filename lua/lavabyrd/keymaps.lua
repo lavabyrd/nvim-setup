@@ -63,7 +63,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
--- don't currently work in warp? it's probably the keybinds need to be modified, 
+-- don't currently work in warp? it's probably the keybinds need to be modified,
 -- Warp uses Mac+[]/Mac+S+[]
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
@@ -73,3 +73,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>d", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", opts)
+
+-- nvim-tree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- toggle file explorer
+
